@@ -1,0 +1,21 @@
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: mendix-app-tgb
+  namespace: stg # Must be the same namespace as your Service
+spec:
+  # 1. Reference the existing AWS Target Group ARN
+  targetGroupARN: arn:aws:elasticloadbalancing:us-west-2:156811367857:targetgroup/HMA-HRDMS-APP-STG/34475208ced2171f
+  # 2. Reference the Kubernetes Service and Port
+  serviceRef:
+    name: zsle0nt4 # Name of your Kubernetes Service (e.g., a ClusterIP service)
+    port: 80 # The port defined in your Service spec (Service.spec.ports[].port)
+  # 3. (Optional) Specify Target Type
+  # The controller can often auto-infer this, but it's good practice to set it.
+  # Use 'ip' for Fargate or direct Pod routing (recommended for EKS).
+  # Use 'instance' for NodePort routing (traffic routes to the node's IP).
+  targetType: ip # or instance
+  # 4. (Optional) Multi-Cluster Setup
+  # Only use this if the same Target Group ARN is shared across multiple clusters.
+  # multiClusterTargetGroup: "true"
+  vpcID: vpc-006318a185824d406
