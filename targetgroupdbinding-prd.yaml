@@ -5,7 +5,7 @@ metadata:
   namespace: prd # Must be the same namespace as your Service
 spec:
   # 1. Reference the existing AWS Target Group ARN
-  targetGroupARN: arn:aws:elasticloadbalancing:us-west-2:501994300574:targetgroup/HMA-HRDMS-APP-PRD/333876f6e92226c4
+  targetGroupARN: arn:aws:elasticloadbalancing:us-west-2:501994300574:targetgroup/HMA-HRDMS-APP-PRD/ee95e79352f3aafc
   # 2. Reference the Kubernetes Service and Port
   serviceRef:
     name: hrdms # Name of your Kubernetes Service (e.g., a ClusterIP service)
@@ -19,3 +19,4 @@ spec:
   # Only use this if the same Target Group ARN is shared across multiple clusters.
   # multiClusterTargetGroup: "true"
   vpcID: vpc-02e02d58d79eb73b6
+
