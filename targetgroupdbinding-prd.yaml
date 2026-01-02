@@ -9,7 +9,7 @@ spec:
   # 2. Reference the Kubernetes Service and Port
   serviceRef:
     name: hrdms # Name of your Kubernetes Service (e.g., a ClusterIP service)
-    port: 80 # The port defined in your Service spec (Service.spec.ports[].port)
+    port: mendix-app # The port defined in your Service spec (Service.spec.ports[].port)
   # 3. (Optional) Specify Target Type
   # The controller can often auto-infer this, but it's good practice to set it.
   # Use 'ip' for Fargate or direct Pod routing (recommended for EKS).
@@ -19,4 +19,5 @@ spec:
   # Only use this if the same Target Group ARN is shared across multiple clusters.
   # multiClusterTargetGroup: "true"
   vpcID: vpc-02e02d58d79eb73b6
+
 
